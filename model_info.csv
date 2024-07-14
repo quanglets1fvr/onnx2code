@@ -1,0 +1,133 @@
+name,index,weights_shape,weights_dtype,padding,stride_h,stride_w,kernel_h,kernel_w,shape,input_tensor_name,weight_tensor_name,bias_tensor_name,output_tensor_name
+QUANTIZE_0,0,,,,,,,,,x.1,,,input.26_te_transform
+PAD_1,1,,,,,,,,,"['input.26_te_transform', 'input.26_te_transform_1_te_attr_2']",,,input.26_te_transform_1_te_transform_2
+CONV_2D_2,2,[16  3  3  3],0,1,2,2,,,,input.26_te_transform_1_te_transform_2,fuse_attr_78,input0.10_te_attr_1,input.24_te_transform
+PAD_3,3,,,,,,,,,"['input.24_te_transform', 'input.24_te_transform_1_te_attr_2']",,,input.24_te_transform_1_te_transform_2
+CONV_2D_4,4,[32  3  3 16],0,1,2,2,,,,input.24_te_transform_1_te_transform_2,fuse_attr_79,input0.32_te_transform,163_te_transform
+CONV_2D_5,5,[32  1  1 32],0,1,1,1,,,,163_te_transform,fuse_attr_80,fuse_transform_60,163_te_transform_1
+TRANPOSE_6,6,,,,,,,,,"['163_te_transform_1', '163_te_attr']",,,163
+SPLIT_7,7,,,,,,,,,706_attr,,,"['706', '707']"
+TRANPOSE_8,8,,,,,,,,,"['707', 'input0.8_te_attr_1']",,,input0.8_te_transform
+CONV_2D_9,9,[16  3  3 16],0,0,1,1,,,,input0.8_te_transform,fuse_attr_81,input0.9_attr_1,180_te_transform
+CONV_2D_10,10,[16  3  3 16],0,0,1,1,,,,180_te_transform,fuse_attr_82,input0.6_te_transform,180_te_transform_1
+TRANPOSE_11,11,,,,,,,,,"['180_te_transform_1', '180_te_attr']",,,180
+ADD_12,12,,,,,,,,,"['707', '180']",,,181
+CONCAT_13,13,,,,,,,,,"['706', '707', '181']",,,input0.26
+TRANPOSE_14,14,,,,,,,,,"['input0.26', 'input0.10_te_attr_1']",,,input0.10_te_transform
+CONV_2D_15,15,[32  1  1 48],0,1,1,1,,,,input0.10_te_transform,fuse_attr_83,544_attr_1,input.18_te_transform
+PAD_16,16,,,,,,,,,"['input.18_te_transform', 'input.18_te_transform_1_te_attr_2']",,,input.18_te_transform_1_te_transform_2
+CONV_2D_17,17,[64  3  3 32],0,1,2,2,,,,input.18_te_transform_1_te_transform_2,fuse_attr_84,285_te_transform,208_te_transform
+CONV_2D_18,18,[64  1  1 64],0,1,1,1,,,,208_te_transform,fuse_attr_85,268_te_attr,208_te_transform_1
+TRANPOSE_19,19,,,,,,,,,"['208_te_transform_1', '208_te_attr']",,,208
+SPLIT_20,20,,,,,,,,,708_attr,,,"['708', '709']"
+TRANPOSE_21,21,,,,,,,,,"['709', 'input0.12_te_attr_1']",,,input0.12_te_transform
+CONV_2D_22,22,[32  3  3 32],0,0,1,1,,,,input0.12_te_transform,fuse_attr_86,180_te_attr,225_te_transform
+CONV_2D_23,23,[32  3  3 32],0,0,1,1,,,,225_te_transform,fuse_attr_87,fuse_attr_126,225_te_transform_1
+TRANPOSE_24,24,,,,,,,,,"['225_te_transform_1', '225_te_attr']",,,225
+ADD_25,25,,,,,,,,,"['709', '225']",,,input0.16
+TRANPOSE_26,26,,,,,,,,,"['input0.16', 'input.22_te_attr_1']",,,input.22_te_transform
+CONV_2D_27,27,[32  3  3 32],0,0,1,1,,,,input.22_te_transform,fuse_attr_88,377_attr_3,240_te_transform
+CONV_2D_28,28,[32  3  3 32],0,0,1,1,,,,240_te_transform,fuse_attr_89,516_attr_1,240_te_transform_1
+TRANPOSE_29,29,,,,,,,,,"['240_te_transform_1', '240_te_attr']",,,240
+ADD_30,30,,,,,,,,,"['input0.16', '240']",,,241
+CONCAT_31,31,,,,,,,,,"['708', '709', 'input0.16', '241']",,,input0.18
+TRANPOSE_32,32,,,,,,,,,"['input0.18', 'input0.20_te_attr_1']",,,input0.20_te_transform
+CONV_2D_33,33,[ 64   1   1 128],0,1,1,1,,,,input0.20_te_transform,fuse_attr_90,input.24_attr_1,input0.20_te_transform_1
+PAD_34,34,,,,,,,,,"['input0.20_te_transform_1', 'input.10_te_transform_1_te_attr_2']",,,input.10_te_transform_1_te_transform_2
+CONV_2D_35,35,[128   3   3  64],0,1,2,2,,,,input.10_te_transform_1_te_transform_2,fuse_attr_91,713,268_te_transform
+CONV_2D_36,36,[128   1   1 128],0,1,1,1,,,,268_te_transform,fuse_attr_92,649_te_transform,268_te_transform_1
+TRANPOSE_37,37,,,,,,,,,"['268_te_transform_1', '268_te_attr']",,,268
+SPLIT_38,38,,,,,,,,,710_attr,,,"['710', '711']"
+TRANPOSE_39,39,,,,,,,,,"['711', 'input0.6_te_attr_1']",,,input0.6_te_transform
+CONV_2D_40,40,[64  3  3 64],0,0,1,1,,,,input0.6_te_transform,fuse_attr_93,fuse_attr_110,285_te_transform
+CONV_2D_41,41,[64  3  3 64],0,0,1,1,,,,285_te_transform,fuse_attr_94,fuse_attr_112,285_te_transform_1
+TRANPOSE_42,42,,,,,,,,,"['285_te_transform_1', '285_te_attr']",,,285
+ADD_43,43,,,,,,,,,"['711', '285']",,,input0.24
+TRANPOSE_44,44,,,,,,,,,"['input0.24', 'input.28_te_attr_1']",,,input.28_te_transform
+CONV_2D_45,45,[64  3  3 64],0,0,1,1,,,,input.28_te_transform,fuse_attr_95,fuse_transform_50,300_te_transform
+CONV_2D_46,46,[64  3  3 64],0,0,1,1,,,,300_te_transform,fuse_attr_96,fuse_attr_128,300_te_transform_1
+TRANPOSE_47,47,,,,,,,,,"['300_te_transform_1', '300_te_attr']",,,300
+ADD_48,48,,,,,,,,,"['input0.24', '300']",,,301
+CONCAT_49,49,,,,,,,,,"['710', '711', 'input0.24', '301']",,,input0.22
+TRANPOSE_50,50,,,,,,,,,"['input0.22', 'input0.23_te_attr_1']",,,input0.23_te_transform
+CONV_2D_51,51,[128   1   1 256],0,1,1,1,,,,input0.23_te_transform,fuse_attr_97,268,input0.23_te_transform_1
+PAD_52,52,,,,,,,,,"['input0.23_te_transform_1', 'input.14_te_transform_1_te_attr_2']",,,input.14_te_transform_1_te_transform_2
+CONV_2D_53,53,[256   3   3 128],0,1,2,2,,,,input.14_te_transform_1_te_transform_2,fuse_attr_98,fuse_attr_91,327_te_transform
+CONV_2D_54,54,[256   1   1 256],0,1,1,1,,,,327_te_transform,fuse_attr_99,300_te_attr,327_te_transform_1
+TRANPOSE_55,55,,,,,,,,,"['327_te_transform_1', '327_te_attr']",,,327
+SPLIT_56,56,,,,,,,,,712_attr,,,"['712', '713']"
+TRANPOSE_57,57,,,,,,,,,"['713', 'input0.30_te_attr_1']",,,input0.30_te_transform
+CONV_2D_58,58,[128   3   3 128],0,0,1,1,,,,input0.30_te_transform,fuse_attr_100,input.13_attr_1,344_te_transform
+CONV_2D_59,59,[128   3   3 128],0,0,1,1,,,,344_te_transform,fuse_attr_101,input0.9_te_transform_1,344_te_transform_1
+TRANPOSE_60,60,,,,,,,,,"['344_te_transform_1', '344_te_attr']",,,344
+ADD_61,61,,,,,,,,,"['713', '344']",,,345
+CONCAT_62,62,,,,,,,,,"['712', '713', '345']",,,input0.28
+TRANPOSE_63,63,,,,,,,,,"['input0.28', 'input0.14_te_attr_1']",,,input0.14_te_transform
+CONV_2D_64,64,[256   1   1 384],0,1,1,1,,,,input0.14_te_transform,fuse_attr_102,input0.18,input.4_te_transform
+CONV_2D_65,65,[128   1   1 256],0,1,1,1,,,,input.4_te_transform,fuse_attr_103,fuse_transform_44,input.4_te_transform_1
+PADV2_66,66,,,,,,,,,"['input.4_te_transform_1', 'input.6_attr_2', 'input.6_attr_3']",,,input.6_transform_2
+MAXPOOL_67,67,,,1,1,1,5,5,,input.6_transform_2,,,input.6_transform_1
+PADV2_68,68,,,,,,,,,"['input.6_transform_1', 'input.8_attr_2', 'input.8_attr_3']",,,input.8_transform_2
+MAXPOOL_69,69,,,1,1,1,5,5,,input.8_transform_2,,,input.8_transform_1
+PADV2_70,70,,,,,,,,,"['input.8_transform_1', '377_attr_2', '377_attr_3']",,,377_transform_2
+MAXPOOL_71,71,,,1,1,1,5,5,,377_transform_2,,,fuse_transform_42
+CONCAT_72,72,,,,,,,,,"['input.4_te_transform_1', 'input.6_transform_1', 'input.8_transform_1', 'fuse_transform_42']",,,input0.32_te_transform
+CONV_2D_73,73,[256   1   1 512],0,1,1,1,,,,input0.32_te_transform,fuse_attr_104,240_attr_1,input0.32_te_transform_1
+UPSAMPLE_74,74,,,,,,,,,"['input0.32_te_transform_1', '399_attr']",,,fuse_transform_19
+CONCAT_75,75,,,,,,,,,"['fuse_transform_19', 'input0.23_te_transform_1']",,,412_te_transform
+CONV_2D_76,76,[128   1   1 384],0,1,1,1,,,,412_te_transform,fuse_attr_105,input.4_te_transform,fuse_transform_16
+SPLIT_77,77,,,,,,,,,fuse_attr_19,,,"['fuse_transform_17', 'fuse_transform_18']"
+CONV_2D_78,78,[64  3  3 64],0,0,1,1,,,,fuse_transform_18,fuse_attr_106,input.8_transform_2,427_te_transform
+CONV_2D_79,79,[64  3  3 64],0,0,1,1,,,,427_te_transform,fuse_attr_107,input0.6_attr_1,fuse_transform_24
+CONCAT_80,80,,,,,,,,,"['fuse_transform_17', 'fuse_transform_18', 'fuse_transform_24']",,,input0.9_te_transform
+CONV_2D_81,81,[128   1   1 192],0,1,1,1,,,,input0.9_te_transform,fuse_attr_108,241,input0.9_te_transform_1
+UPSAMPLE_82,82,,,,,,,,,"['input0.9_te_transform_1', '436_attr']",,,fuse_transform_26
+CONCAT_83,83,,,,,,,,,"['fuse_transform_26', 'input0.20_te_transform_1']",,,449_te_transform
+CONV_2D_84,84,[ 64   1   1 192],0,1,1,1,,,,449_te_transform,fuse_attr_109,input.8_attr_3,fuse_transform_33
+SPLIT_85,85,,,,,,,,,fuse_attr_37,,,"['fuse_transform_34', 'fuse_transform_35']"
+CONV_2D_86,86,[32  3  3 32],0,0,1,1,,,,fuse_transform_35,fuse_attr_110,fuse_attr_132,464_te_transform
+CONV_2D_87,87,[32  3  3 32],0,0,1,1,,,,464_te_transform,fuse_attr_111,fuse_attr_89,fuse_transform_31
+CONCAT_88,88,,,,,,,,,"['fuse_transform_34', 'fuse_transform_35', 'fuse_transform_31']",,,input0.15_te_transform
+CONV_2D_89,89,[64  1  1 96],0,1,1,1,,,,input0.15_te_transform,fuse_attr_112,476_te_transform_1_te_transform_2,input0.15_te_transform_1
+PAD_90,90,,,,,,,,,"['input0.15_te_transform_1', '476_te_transform_1_te_attr_2']",,,476_te_transform_1_te_transform_2
+CONV_2D_91,91,[64  3  3 64],0,1,2,2,,,,476_te_transform_1_te_transform_2,fuse_attr_113,208_te_attr,fuse_transform_53
+CONCAT_92,92,,,,,,,,,"['fuse_transform_53', 'input0.9_te_transform_1']",,,489_te_transform
+CONV_2D_93,93,[128   1   1 192],0,1,1,1,,,,489_te_transform,fuse_attr_114,634_attr_1,fuse_transform_50
+SPLIT_94,94,,,,,,,,,fuse_attr_55,,,"['fuse_transform_51', 'fuse_transform_52']"
+CONV_2D_95,95,[64  3  3 64],0,0,1,1,,,,fuse_transform_52,fuse_attr_115,fuse_attr_78,504_te_transform
+CONV_2D_96,96,[64  3  3 64],0,0,1,1,,,,504_te_transform,fuse_attr_116,fuse_transform_33,fuse_transform_58
+CONCAT_97,97,,,,,,,,,"['fuse_transform_51', 'fuse_transform_52', 'fuse_transform_58']",,,input0.21_te_transform
+CONV_2D_98,98,[128   1   1 192],0,1,1,1,,,,input0.21_te_transform,fuse_attr_117,617_attr_1,input0.21_te_transform_1
+PAD_99,99,,,,,,,,,"['input0.21_te_transform_1', '516_te_transform_1_te_attr_2']",,,516_te_transform_1_te_transform_2
+CONV_2D_100,100,[128   3   3 128],0,1,2,2,,,,516_te_transform_1_te_transform_2,fuse_attr_118,input0.30_te_attr_1,fuse_transform_63
+CONCAT_101,101,,,,,,,,,"['fuse_transform_63', 'input0.32_te_transform_1']",,,529_te_transform
+CONV_2D_102,102,[256   1   1 384],0,1,1,1,,,,529_te_transform,fuse_attr_119,input0.14_te_attr_1,fuse_transform_60
+SPLIT_103,103,,,,,,,,,fuse_attr_66,,,"['fuse_transform_61', 'fuse_transform_62']"
+CONV_2D_104,104,[128   3   3 128],0,0,1,1,,,,fuse_transform_62,fuse_attr_120,fuse_transform_42,544_te_transform
+CONV_2D_105,105,[128   3   3 128],0,0,1,1,,,,544_te_transform,fuse_attr_121,input.10_attr_1,fuse_transform_68
+CONCAT_106,106,,,,,,,,,"['fuse_transform_61', 'fuse_transform_62', 'fuse_transform_68']",,,input0.1_te_transform
+CONV_2D_107,107,[256   1   1 384],0,1,1,1,,,,input0.1_te_transform,fuse_attr_122,input.24_te_transform_1_te_transform_2,input0.1_te_transform_1
+CONV_2D_108,108,[ 64   3   3 256],0,0,1,1,,,,input0.1_te_transform_1,fuse_attr_135,fuse_attr_80,input.21_te_transform
+CONV_2D_109,109,[64  3  3 64],0,0,1,1,,,,input.21_te_transform,fuse_attr_136,input0.13_attr_1,666_te_transform
+CONV_2D_110,110,[ 4  1  1 64],0,1,1,1,,,,666_te_transform,fuse_attr_137,input0.8_te_attr_1,fuse_transform_36
+CONV_2D_111,111,[ 80   3   3 256],0,0,1,1,,,,input0.1_te_transform_1,fuse_attr_138,710_attr,input.1_te_transform
+CONV_2D_112,112,[80  3  3 80],0,0,1,1,,,,input.1_te_transform,fuse_attr_139,345,681_te_transform
+CONV_2D_113,113,[ 1  1  1 80],0,1,1,1,,,,681_te_transform,fuse_attr_140,input0.6_te_attr_1,fuse_transform_37
+CONCAT_114,114,,,,,,,,,"['fuse_transform_36', 'fuse_transform_37']",,,fuse_transform_3
+DEQUANTIZE_115,115,,,,,,,,,fuse_transform_3,,,691
+CONV_2D_116,116,[ 64   3   3 128],0,0,1,1,,,,input0.21_te_transform_1,fuse_attr_129,input0.23_te_attr_1,input.13_te_transform
+CONV_2D_117,117,[64  3  3 64],0,0,1,1,,,,input.13_te_transform,fuse_attr_130,180_te_transform,634_te_transform
+CONV_2D_118,118,[ 4  1  1 64],0,1,1,1,,,,634_te_transform,fuse_attr_131,476_te_transform_1_te_attr_2,fuse_transform_47
+CONV_2D_119,119,[ 80   3   3 128],0,0,1,1,,,,input0.21_te_transform_1,fuse_attr_132,input0.10_te_transform,input.17_te_transform
+CONV_2D_120,120,[80  3  3 80],0,0,1,1,,,,input.17_te_transform,fuse_attr_133,666_te_transform,649_te_transform
+CONV_2D_121,121,[ 1  1  1 80],0,1,1,1,,,,649_te_transform,fuse_attr_134,fuse_attr_83,fuse_transform_48
+CONCAT_122,122,,,,,,,,,"['fuse_transform_47', 'fuse_transform_48']",,,fuse_transform_2
+DEQUANTIZE_123,123,,,,,,,,,fuse_transform_2,,,690
+CONV_2D_124,124,[64  3  3 64],0,0,1,1,,,,input0.15_te_transform_1,fuse_attr_123,240_te_transform,input.5_te_transform
+CONV_2D_125,125,[64  3  3 64],0,0,1,1,,,,input.5_te_transform,fuse_attr_124,300_te_transform_1,602_te_transform
+CONV_2D_126,126,[ 4  1  1 64],0,1,1,1,,,,602_te_transform,fuse_attr_125,163_attr_1,fuse_transform_44
+CONV_2D_127,127,[80  3  3 64],0,0,1,1,,,,input0.15_te_transform_1,fuse_attr_126,504_attr_1,input.9_te_transform
+CONV_2D_128,128,[80  3  3 80],0,0,1,1,,,,input.9_te_transform,fuse_attr_127,fuse_transform_16,617_te_transform
+CONV_2D_129,129,[ 1  1  1 80],0,1,1,1,,,,617_te_transform,fuse_attr_128,input0.20_attr_1,fuse_transform_45
+CONCAT_130,130,,,,,,,,,"['fuse_transform_44', 'fuse_transform_45']",,,fuse_transform_1
+DEQUANTIZE_131,131,,,,,,,,,fuse_transform_1,,,689
